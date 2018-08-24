@@ -1,0 +1,62 @@
+Format as follows:
+
+"comment text"
+"commenter username", "total votes"
+"article URL"
+
+
+"Lucky we have such an open and transparent government *sarcasm*"
+"yosarian1971", "+24"
+"https://www.stuff.co.nz/opinion/106534170/new-zealand-is-not-vigilant-enough-about-creeping-corruption"
+
+"It seems to me that American voters get the politicians they deserve. I wouldn't vote any of them into office higher than city dog catcher."
+"Overtaxed", "+9"
+https://www.stuff.co.nz/world/americas/106495162/donald-trump-the-illegitimate-us-president
+
+"Just the tip of the iceberg as far as foreigners exploiting our system I suspect."
+"Cockaboo", "+102"
+"https://www.stuff.co.nz/opinion/106534170/new-zealand-is-not-vigilant-enough-about-creeping-corruption"
+
+"Hillary Clinton is not the president though she got more votes than that fraud Trump.He was going to drain the swamp. Big joke. He has enlarged it and it will swallow him."
+"Dutch Kiwi", "+4"
+"https://www.stuff.co.nz/world/americas/106495162/donald-trump-the-illegitimate-us-president"
+
+"They say empires go mad before they capitulate,America’s never being crazier!"
+"flatofangles", "+18"
+"https://www.stuff.co.nz/world/americas/106495162/donald-trump-the-illegitimate-us-president"
+
+"A President who abuses people through Twitter he does not like or disagrees with him is NOT a president."
+"Burn't Toast.", "+30"
+"https://www.stuff.co.nz/world/americas/106495162/donald-trump-the-illegitimate-us-president"
+
+"Someone in Wellington will be working out a way to tax your efforts as I write.  At the least your husband will have to cone off his worksite."
+"tonro", "+6"
+"https://www.stuff.co.nz/life-style/homed/latest/106490993/our-power-bill-is-70--and-we-dont-go-without"
+
+"Life is for loving, you can't take your money to the grave. Go out, spend a few dollars on making some lasting memories which you can't do at home - see and experience the world."
+"Mike_Hunt", "+8"
+"https://www.stuff.co.nz/life-style/homed/latest/106490993/our-power-bill-is-70--and-we-dont-go-without"
+
+""Honey, we are doing away with showers and having sponge baths in front of the fire". The quickest easiest way to a single life."
+"HumanPower", "+16"
+"https://www.stuff.co.nz/life-style/homed/latest/106490993/our-power-bill-is-70--and-we-dont-go-without"
+
+"Always tough in numbers,weak on their own"
+"Ode cologne", "+59"
+"https://www.stuff.co.nz/national/106530603/motuekas-picked-on-mobsters-pack-up-and-move-out-of-town"
+
+"Failure to terminate or at least to contain the growth of gang culture is a failure of ALL governments in our history. None of them took any real interest to kill this blinking menace!"
+"lalper", "+67"
+"https://www.stuff.co.nz/national/106530603/motuekas-picked-on-mobsters-pack-up-and-move-out-of-town"
+
+"Good, gangs are for losers."
+"Randy Couric", "+77"
+"https://www.stuff.co.nz/national/106530603/motuekas-picked-on-mobsters-pack-up-and-move-out-of-town"
+
+"Picked on? The poor wee loves."
+"Whomp on", "+89"
+"https://www.stuff.co.nz/national/106530603/motuekas-picked-on-mobsters-pack-up-and-move-out-of-town"
+
+"Awww big, tough, hardened Mongrel Mob members feeling like they've been picked on.  Define irony ..."
+"Tony Who", "+85"
+"https://www.stuff.co.nz/national/106530603/motuekas-picked-on-mobsters-pack-up-and-move-out-of-town"
