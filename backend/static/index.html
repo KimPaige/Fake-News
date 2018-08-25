@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+<script src="http://idangero.us/swiper/dist/js/swiper.min.js"></script>
+<script>
+    fetch("/api/comments.json").then(resp => resp.json()).then(comments => {
+
+      let carousel = $(".swiper-wrapper");
+      console.log(comments.data.length);
+      for (var a = 0; a < comments.data.length; a++) {
+        let comment = $(`<div class="swiper-slide">${comments.data[a].text}</div>`);
+        carousel.append(comment);
+      }
+
+      var swiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        slidesPerView: 3,
+        spaceBetween: 30,
+        centeredSlides: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+
+      // for (var b = 0; b < comments.data.length; b++) {
+      //   let comment = $(`<div class="swiper-slide">${comments.data[a].text}</div>`);
+      //
+      // }
+
+
+    })
+
+</script>
 <meta charset="utf-8">
 <title>Swiper demo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -47,36 +79,18 @@
 </head>
 <body>
 
+
+
 <div class="swiper-container">
 <div class="swiper-wrapper">
-<div class="swiper-slide">Slide 1</div>
-<div class="swiper-slide">Slide 2</div>
-<div class="swiper-slide">Slide 3</div>
-<div class="swiper-slide">Slide 4</div>
-<div class="swiper-slide">Slide 5</div>
-<div class="swiper-slide">Slide 6</div>
-<div class="swiper-slide">Slide 7</div>
-<div class="swiper-slide">Slide 8</div>
-<div class="swiper-slide">Slide 9</div>
-<div class="swiper-slide">Slide 10</div>
+
 </div>
 
 <div class="swiper-pagination"></div>
 </div>
 
-<script src="http://idangero.us/swiper/dist/js/swiper.min.js"></script>
 
-<script>
-    var swiper = new Swiper('.swiper-container', {
-      direction: 'vertical',
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  </script>
+
+
 </body>
 </html>
