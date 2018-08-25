@@ -19,16 +19,17 @@ function setTone(comments) {
 
     // Gets the tone data, and then sets the tone message based on the tone of the day
     fetchToneData(setToneMessage)
-    
 }
 
 /**
  * Sets the tone message 
- * @param {*} toneData All the tone messages by tone
+ * @param {*} data All the tone messages by tone
  * @param {*} tone The tone of the message
  */
-function setToneMessage(toneData, tone) {
-    let toneMessage = toneData[tone][0];
+function setToneMessage(data, tone) {
+    let toneData = data[tone];
+    let randomMessageIndex = Math.floor((Math.random() * toneData.length));
+    let toneMessage = toneData[randomMessageIndex];
     $("#mood").text(toneMessage);
 }
 
