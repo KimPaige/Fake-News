@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 var commentsDB = require('./commentsData');
 
-=======
 var get = require('./spike-comments').get;
->>>>>>> 1ff28bfd9a59c834c9ef1fc584c1421482df0585
 var express = require('express');
 var app = express();
 var serveStatic = require('serve-static');
