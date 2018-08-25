@@ -1,26 +1,52 @@
+#table {
+    width: 600px;
+}
+
 #mood {
     text-align: center;
     font-size: 72px;
     font-family: Helvetica;
     font-weight: bold;
     color: white;
+    width: 100%;
 }
 
-#menu-item {
+#comment {
+    padding-left: 20px;
     font-size: 20px;
     font-family: Helvetica;
     font-weight: bold;
     color: white;
 }
 
+#com {
+    /* width: 50%; */
+}
+
+#votes {
+    font-size: 36px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-right: 20px;
+}
+
 #body {
     background-color: #F5A623;
 }
 
-#flex-box {
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#source {
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Helvetica;
+    text-align: center;
 }
 
+#post {
+    color: white;
+    font-size: 16px;
+    font-family: Helvetica;
+    padding-left: 20px;
+    font-weight: lighter;
+}
