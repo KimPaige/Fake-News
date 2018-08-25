@@ -8,6 +8,8 @@ app.get('/', function(req, res){
     server(req, res, finalhandler(req, res));
 });
 
+
+
 // app.use(serveStatic('static'));
 
 app.listen(5000);
