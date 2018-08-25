@@ -6,9 +6,19 @@
 <script>
     fetch("/api/comments.json").then(resp => resp.json()).then(comments => {
 
+      let colors = new Map();
+      colors.set("joy", "#FFE854");
+      colors.set("anger", "#CA3534");
+      colors.set("fear", "#AB1EAB");
+      colors.set("sad", "#2F8CC8");
+      colors.set("disgust", "#459345");
+
       let carousel = $(".swiper-wrapper");
       let midIndex = comments.data.length/2;
       console.log(comments.data.length);
+
+
+
       for (var a = 0; a < comments.data.length; a++) {
         if (a == midIndex) {
           let moodText = "Mood Tone Message Here!";
@@ -94,7 +104,7 @@
         color: white;
         color: white;
     }
-   
+
     #comment {
         font-size: 36px;
         font-family: Helvetica;
