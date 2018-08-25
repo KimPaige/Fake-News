@@ -31,9 +31,10 @@ function Comment(articleTitle, articleURL, text) {
 }
 
 get(coms => {
-    coms.forEach(com => {
+    console.log(JSON.stringify(coms));
+    /*coms.forEach(com => {
         console.log(com.text);
-    })
+    })*/
 });
 
 /**
