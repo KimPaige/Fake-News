@@ -1,17 +1,23 @@
-"It's great"
+Anger,Disgust,Fear,Joy,Sadness
 
-"The world is a messed up place"
+"It's great" - Joy
 
-"Cruising on cloud nine"
+"The world is a messed up place" - Disgust
 
-"On top of the world"
+"Cruising on cloud nine" - Joy
 
-"Happy as Larry"
+"On top of the world" - Joy
 
-"Absolutely spiffin' innit"
+"Happy as Larry" - Joy
 
-"Over the moon"
+"Absolutely spiffin' innit" - Joy
 
-"Reduced to tears"
+"Over the moon" - Joy
 
-"The nation's got the blues today"
+"Reduced to tears" - Sadness
+
+"The nation's got the blues today" - Sadness
+
+"They're an angry bunch today" - Anger
+
+"Fears are nothing more than a state of mind" - Fear
