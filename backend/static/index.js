@@ -11,10 +11,12 @@ $(function() {
 
 
 function setTone(comments) {
+    const mostCommonTone = comments[0].tod;
+
     // Group comments by the tone category 
-    var commentsByTone = groupBy(comments, 'tone');
-    // Get the tone with most number of comments
-    var mostCommonTone = Object.keys(commentsByTone).reduce((a, b) => commentsByTone[a].length > commentsByTone[b].length ? a : b);
+    // var commentsByTone = groupBy(comments, 'tone');
+    // // Get the tone with most number of comments
+    // var mostCommonTone = Object.keys(commentsByTone).reduce((a, b) => commentsByTone[a].length > commentsByTone[b].length ? a : b);
     toneOfTheDay = mostCommonTone;
 
     // Gets the tone data, and then sets the tone message based on the tone of the day
