@@ -7,13 +7,20 @@
     fetch("/api/comments.json").then(resp => resp.json()).then(comments => {
 
       let carousel = $(".swiper-wrapper");
+      let midIndex = comments.data.length/2;
       console.log(comments.data.length);
       for (var a = 0; a < comments.data.length; a++) {
+        if (a == midIndex) {
+          let moodText = "Mood Tone Message Here!";
+          let mood = $(`<div class="swiper-slide">${moodText}</div>`);
+          carousel.append(mood);
+        }
         let comment = $(`<div class="swiper-slide">${comments.data[a].text}</div>`);
         carousel.append(comment);
       }
 
       var swiper = new Swiper('.swiper-container', {
+        initialSlide: midIndex,
         direction: 'vertical',
         slidesPerView: 3,
         spaceBetween: 30,
