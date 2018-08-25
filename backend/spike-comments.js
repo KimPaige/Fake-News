@@ -30,13 +30,6 @@ function Comment(articleTitle, articleURL, text) {
     this.text = text;
 }
 
-get(coms => {
-    console.log(JSON.stringify(coms));
-    /*coms.forEach(com => {
-        console.log(com.text);
-    })*/
-});
-
 /**
  * Gets an array of articles and their comments.
  * 
@@ -112,4 +105,8 @@ function get(callback) {
             if (asyncNumDone === asyncNumToDo) callback(comments);
         });
     }
+}
+
+module.exports = {
+    get: get
 }
