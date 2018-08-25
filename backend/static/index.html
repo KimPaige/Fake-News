@@ -6,13 +6,26 @@
 <script>
     fetch("/api/comments.json").then(resp => resp.json()).then(comments => {
 
+      let colors = {
+        joy: "#FFE854",
+        anger: "#CA3534",
+        fear: "#AB1EAB",
+        sad: "#2F8CC8",
+        disgust: "#459345"
+      };
+
       let carousel = $(".swiper-wrapper");
       let midIndex = comments.data.length/2;
-      console.log(comments.data.length);
+
+      //$("body").css("background-image", `linear-gradient(${colors.get("joy")}, ${colors.get("anger")})`);
+
+      let colorsArray = [];
+
       for (var a = 0; a < comments.data.length; a++) {
         if (a == midIndex) {
           let moodText = "Mood Tone!";
           let mood = $(`<div class="swiper-slide" id="mood">${moodText}</div>`);
+          colorsArray.push(colors["fear"]);
           carousel.append(mood);
         }
 
@@ -26,6 +39,7 @@
             <td><div id="source"><strong>Source</strong> <a id="link" href="${comments.data[a].url}">${comments.data[a].url}</a></div></td>
         </tr>
     </table></div>`);
+    colorsArray.push(colors[comments.data[a].tone]);
 
         carousel.append(comment);
       }
@@ -41,6 +55,21 @@
           clickable: true,
         },
       });
+
+      swiper.on('slideChange', function () {
+        console.log('slide changed');
+        changeSlide();
+        //$("body").css("background-color", `linear-gradient(${colors.get("joy")}, ${colors.get("anger")})`);
+      });
+      changeSlide();
+
+      function changeSlide() {
+        let activeIndex = swiper.activeIndex;
+        let currentColor = colorsArray[activeIndex];
+        $("body").css("background-color", currentColor);
+      }
+
+
     })
 
 </script>
@@ -56,12 +85,13 @@
       height: 100%;
     }
     body {
+      transition: background-color 1s;
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
       font-size: 14px;
       color:#000;
       margin: 0;
       padding: 0;
-      background-image: linear-gradient(red, yellow);
+      /* background-image: linear-gradient(red, yellow); */
     }
     .swiper-container {
       width: 100%;
@@ -102,7 +132,7 @@
         padding-right: 148px;
         width: 60%;
     }
-   
+
     #comment {
         font-size: 36px;
         font-family: Helvetica;
