@@ -11,19 +11,19 @@
       console.log(comments.data.length);
       for (var a = 0; a < comments.data.length; a++) {
         if (a == midIndex) {
-          let moodText = "Mood Tone Message Here!";
+          let moodText = "Mood Tone!";
           let mood = $(`<div class="swiper-slide" id="mood">${moodText}</div>`);
           carousel.append(mood);
         }
 
-
-
     let comment = $(`<div class="swiper-slide"><table id="table" align="center">
         <tr>
+            <td style="vertical-align: top" width= "200px"><div id="tone">${comments.data[a].tone}</div></td>
             <td><div id="comment">${comments.data[a].text}</div></td>
         </tr>
         <tr>
-            <td><div id="source"><strong>source</strong> ${comments.data[a].url}</div></td>
+            <td></td>
+            <td><div id="source"><strong>Source</strong> <a id="link" href="${comments.data[a].url}">${comments.data[a].url}</a></div></td>
         </tr>
     </table></div>`);
 
@@ -86,13 +86,21 @@
       -webkit-align-items: center;
       align-items: center;
     }
+
+.swiper-pagination-bullet-active {
+    background: white !important;
+}
+
     #mood {
-        text-align: center;
+        text-align: left;
         font-size: 144px;
         font-family: Helvetica;
         font-weight: bold;
         color: white;
         color: white;
+        padding-left: 148px;
+        padding-right: 148px;
+        width: 60%;
     }
    
     #comment {
@@ -102,6 +110,8 @@
         color: white;
         width: 100%;
         display: block;
+        text-align: left;
+        padding-bottom: 20px;
     }
 
     #source {
@@ -109,8 +119,32 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 16px;
         width: 100%;
-        align: center;
+        text-align: left;
         display: block;
+    }
+
+    #link {
+        color: white;
+        text-decoration: none;
+    }
+
+    #link:hover {
+        color: #D2CDCD;
+    }
+    #table {
+        width: 800px;
+    }
+
+    #tone {
+        color: rgb(255, 255, 255, 0.5);
+        font-size: 36px;
+        font-family: Helvetica;
+        font-weight: bold;
+        /* width: 100%; */
+        /* display: block; */
+        text-align: right;
+        text-transform: capitalize;
+        padding-right: 42px;
     }
 
   </style>
