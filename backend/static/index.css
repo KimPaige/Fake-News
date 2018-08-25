@@ -1,0 +1,26 @@
+#mood {
+    text-align: center;
+    font-size: 72px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: white;
+}
+
+#menu-item {
+    font-size: 20px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: white;
+}
+
+#body {
+    background-color: #F5A623;
+}
+
+#flex-box {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
