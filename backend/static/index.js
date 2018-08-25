@@ -11,24 +11,27 @@ $(function() {
 
 
 function setTone(comments) {
+    const mostCommonTone = comments[0].tod;
+
     // Group comments by the tone category 
-    var commentsByTone = groupBy(comments, 'tone');
-    // Get the tone with most number of comments
-    var mostCommonTone = Object.keys(commentsByTone).reduce((a, b) => commentsByTone[a].length > commentsByTone[b].length ? a : b);
+    // var commentsByTone = groupBy(comments, 'tone');
+    // // Get the tone with most number of comments
+    // var mostCommonTone = Object.keys(commentsByTone).reduce((a, b) => commentsByTone[a].length > commentsByTone[b].length ? a : b);
     toneOfTheDay = mostCommonTone;
 
     // Gets the tone data, and then sets the tone message based on the tone of the day
     fetchToneData(setToneMessage)
-    
 }
 
 /**
  * Sets the tone message 
- * @param {*} toneData All the tone messages by tone
+ * @param {*} data All the tone messages by tone
  * @param {*} tone The tone of the message
  */
-function setToneMessage(toneData, tone) {
-    let toneMessage = toneData[tone][0];
+function setToneMessage(data, tone) {
+    let toneData = data[tone];
+    let randomMessageIndex = Math.floor((Math.random() * toneData.length));
+    let toneMessage = toneData[randomMessageIndex];
     $("#mood").text(toneMessage);
 }
 
