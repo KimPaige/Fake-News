@@ -23,23 +23,17 @@ var options = {
 const RSS_URL = "https://i.stuff.co.nz/rss";
 const MIN_ARTICLES = 1;
 
-let articles = [];
-function Article(title, url, comments) {
-    this.title = title;
-    this.url = url;
-    this.comments = comments;
+let comments = [];
+function Comment(articleTitle, articleURL, text) {
+    this.articleTitle = articleTitle;
+    this.articleURL = articleURL;
+    this.text = text;
 }
 
-get(arts => {
-    console.log(arts);
-    arts.forEach(art => {
-        console.log("Title: " + art.title);
-        console.log("URL: " + art.url);
-        console.log("Comments: ");
-        art.comments.forEach(c => {
-            console.log(c);
-        });
-    });
+get(coms => {
+    coms.forEach(com => {
+        console.log(com.text);
+    })
 });
 
 /**
@@ -109,14 +103,12 @@ function get(callback) {
             let obj = JSON.parse(body);
             if (obj.commentCount >= MIN_ARTICLES) {
                 //Skip articles without enough comments
-                let comments = [];
                 for (let i = 0; i < obj.comments.length; i++) {
-                    comments.push(obj.comments[i].commentText);
+                    comments.push(new Comment(articleName, url, obj.comments[i].commentText));
                 }
-                articles.push(new Article(articleName, url, comments));
             }
             asyncNumDone++;
-            if (asyncNumDone === asyncNumToDo) callback(articles);
+            if (asyncNumDone === asyncNumToDo) callback(comments);
         });
     }
 }
