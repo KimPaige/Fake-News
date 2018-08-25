@@ -1,17 +1,18 @@
 {
   "anger": [
-    "They're an angry bunch today"
+    "They're an angry bunch today.",
+    "It’s hit the fan."
   ],
   "disgust": [
-    "The world is a messed up place"
+    "The world is a messed up place."
   ],
   "fear": [
-    "Fears are nothing more than a state of mind"
+    "Fears are nothing more than a state of mind.”
   ],
   "joy": [
-    "Absolutely spiffin' innit"
+    "Absolutely spiffin' innit."
   ],
   "sadness": [
-    "The nation's got the blues today"
+    "The nation's got the blues today."
   ]
 }
