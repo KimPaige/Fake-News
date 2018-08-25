@@ -12,10 +12,21 @@
       for (var a = 0; a < comments.data.length; a++) {
         if (a == midIndex) {
           let moodText = "Mood Tone Message Here!";
-          let mood = $(`<div class="swiper-slide">${moodText}</div>`);
+          let mood = $(`<div class="swiper-slide" id="mood">${moodText}</div>`);
           carousel.append(mood);
         }
-        let comment = $(`<div class="swiper-slide">${comments.data[a].text}</div>`);
+
+
+
+    let comment = $(`<div class="swiper-slide"><table id="table" align="center">
+        <tr>
+            <td><div id="comment">${comments.data[a].text}</div></td>
+        </tr>
+        <tr>
+            <td><div id="source"><strong>source</strong> ${comments.data[a].url}</div></td>
+        </tr>
+    </table></div>`);
+
         carousel.append(comment);
       }
 
@@ -23,25 +34,18 @@
         initialSlide: midIndex,
         direction: 'vertical',
         slidesPerView: 3,
-        spaceBetween: 30,
+        spaceBetween: 10,
         centeredSlides: true,
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
         },
       });
-
-      // for (var b = 0; b < comments.data.length; b++) {
-      //   let comment = $(`<div class="swiper-slide">${comments.data[a].text}</div>`);
-      //
-      // }
-
-
     })
 
 </script>
 <meta charset="utf-8">
-<title>Swiper demo</title>
+<title>New Tab</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="http://idangero.us/swiper/dist/css/swiper.min.css">
@@ -52,12 +56,12 @@
       height: 100%;
     }
     body {
-      background: #eee;
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
       font-size: 14px;
       color:#000;
       margin: 0;
       padding: 0;
+      background-image: linear-gradient(red, yellow);
     }
     .swiper-container {
       width: 100%;
@@ -66,7 +70,7 @@
     .swiper-slide {
       text-align: center;
       font-size: 18px;
-      background: #fff;
+      background: transparent;
 
       /* Center slide text vertically */
       display: -webkit-box;
@@ -82,22 +86,40 @@
       -webkit-align-items: center;
       align-items: center;
     }
+    #mood {
+        text-align: center;
+        font-size: 144px;
+        font-family: Helvetica;
+        font-weight: bold;
+        color: white;
+        color: white;
+    }
+   
+    #comment {
+        font-size: 36px;
+        font-family: Helvetica;
+        font-weight: bold;
+        color: white;
+        width: 100%;
+        display: block;
+    }
+
+    #source {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        width: 100%;
+        align: center;
+        display: block;
+    }
+
   </style>
 </head>
 <body>
-
-
-
 <div class="swiper-container">
-<div class="swiper-wrapper">
-
-</div>
-
+    <div class="swiper-wrapper">
+    </div>
 <div class="swiper-pagination"></div>
 </div>
-
-
-
-
 </body>
 </html>
