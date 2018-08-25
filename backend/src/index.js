@@ -157,7 +157,7 @@ if(makeRequest) {
   });
 }
 
-app.get('/api/comments.json', (req, res) => {
+app.get('/api/comments[1].json', (req, res) => {
   
   commentsDB.getComments({}, (err, data) => {
     res.send({ data });
