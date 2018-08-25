@@ -1,3 +1,4 @@
+var commentsDB = require('./commentsData');
 var getComments = require('./spike-comments').get;
 var express = require('express');
 var app = express();
