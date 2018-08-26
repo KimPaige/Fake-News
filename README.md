@@ -24,6 +24,11 @@ Fake News curates the latest and most outrageous comments posted on Stuff.co.nz 
  ![Command Line Install Animation](https://github.com/KimPaige/Fake-News/blob/master/images/terminal.gif)
  
  
+ ## Thanks
+ 
+ This project is the result of 16 hours work by four student developers and one designer at the 2018 Summer of Tech Create Camp. We would like to give thanks to all involved, without your generous investments of time and mentorship this project would not have been possible. Special thanks to Flux Federation for hosting the weekend-long event and to our awesome mentor, Micheal from Xero!
+
+ 
  ## Screenshots
  
   ![Landing page with overall state of the nation (joy)](https://github.com/KimPaige/Fake-News/blob/master/images/1.png)
