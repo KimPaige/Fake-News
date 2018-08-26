@@ -31,7 +31,7 @@
     let comment = $(`<div class="swiper-slide"><table id="table" align="center">
         <tr>
             <td style="vertical-align: top" width= "200px"><div id="tone">${comments.data[a].tone}</div></td>
-            <td><div id="comment" width= "600px">${comments.data[a].text.length > 260 ? comments.data[a].text.substring(0, 260) + "..." : comments.data[a].text}</div></td>
+            <td><div id="comment" width= "600px">${comments.data[a].text.length > 140 ? comments.data[a].text.substring(0, 140) + "..." : comments.data[a].text}</div></td>
         </tr>
         <tr>
             <td></td>
