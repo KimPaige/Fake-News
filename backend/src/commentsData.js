@@ -12,5 +12,9 @@ module.exports = {
 
     getComments: function(opts, callback) {
         db.find(opts, callback);
+    },
+
+    deleteComments: function(query) {
+        db.remove(query);
     }
 }
