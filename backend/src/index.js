@@ -7,7 +7,27 @@ var fs = require('fs');
 var path = require('path');
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
-var makeRequest = false;
+const toneMessages = {
+    "anger": [
+      "They're an angry bunch today.",
+      "It’s hit the fan."
+    ],
+    "disgust": [
+      "The world is a messed up place."
+    ],
+    "fear": [
+      "Fears are nothing more than a state of mind."
+    ],
+    "joy": [
+      "Absolutely spiffin' innit."
+    ],
+    "sadness": [
+      "The nation's got the blues today."
+    ]
+}
+  
+
+var makeRequest = true;
 
 //Get the secret key
 if(makeRequest) {
@@ -133,23 +153,54 @@ if(makeRequest) {
 
                       let databaseEntry = {};
 
-                      databaseEntry.tod = tod;
+                      databaseEntry.tod = {
+                          tagline: toneMessages[tod][Math.floor((Math.random() * toneMessages[tod].length))],
+                          name: tod
+                      }
 
-                      databaseEntry.comments = [];
+                      //joy, anger, fear, sadness, disgust
 
-                      mostAngerComment.emotion = "anger";
-                      mostDisgustComment.emotion = "disgust";
-                      mostFearComment.emotion = "fear";
-                      mostJoyComment.emotion = "joy";
-                      mostSadComment.emotion = "sadness";
+                      
+                      let data = [];
+                      data.push({
+                        text: mostJoyComment.text,
+                        url: mostJoyComment.articleURL,
+                        title: mostJoyComment.articleTitle,
+                        tone: "joy"
+                      });
 
-                      databaseEntry.comments.push(mostAngerComment);
-                      databaseEntry.comments.push(mostDisgustComment);
-                      databaseEntry.comments.push(mostFearComment);
-                      databaseEntry.comments.push(mostJoyComment);
-                      databaseEntry.comments.push(mostSadComment);
+                      data.push({
+                        text: mostAngerComment.text,
+                        url: mostAngerComment.articleURL,
+                        title: mostAngerComment.articleTitle,
+                        tone: "anger"
+                      });
+
+                      data.push({
+                        text: mostFearComment.text,
+                        url: mostFearComment.articleURL,
+                        title: mostFearComment.articleTitle,
+                        tone: "fear"
+                      });
+
+                      data.push({
+                        text: mostSadComment.text,
+                        url: mostSadComment.articleURL,
+                        title: mostSadComment.articleTitle,
+                        tone: "sad"
+                      });
+
+                      data.push({
+                        text: mostDisgustComment.text,
+                        url: mostDisgustComment.articleURL,
+                        title: mostDisgustComment.articleTitle,
+                        tone: "disgust"
+                      });
+
+                      databaseEntry.data = data;
 
                       commentsDB.addComment(databaseEntry);
+                      console.log('Test');
                   }
               });
           });
@@ -160,7 +211,8 @@ if(makeRequest) {
 app.get('/api/comments.json', (req, res) => {
   
   commentsDB.getComments({}, (err, data) => {
-    res.send(data[0]);
+    console.log(data);
+    res.send(data[data.length - 1]);
   })
 })
 
