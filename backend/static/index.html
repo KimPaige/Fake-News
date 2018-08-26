@@ -6,7 +6,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.js"></script>
 <script>
     fetch("/api/comments.json").then(resp => resp.json()).then(comments => {
-
+        console.log(comments)
       let colors = {
         joy: "#EEDD01",
         anger: "#CA3534",
@@ -16,12 +16,13 @@
       };
 
       let carousel = $(".swiper-wrapper");
-      let midIndex = comments.data.length/2;
+      let midIndex = Math.round(comments.data.length/2);
       let colorsArray = [];
 
       for (var a = 0; a < comments.data.length; a++) {
         if (a == midIndex) {
           var moodText = comments.tod.tagline;
+          console.log(moodText)
           let mood = $(`<div class="swiper-slide" id="mood">${moodText}</div>`);
           colorsArray.push(colors[comments.tod.name]);
           carousel.append(mood);
