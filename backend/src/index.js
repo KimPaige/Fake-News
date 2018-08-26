@@ -160,7 +160,7 @@ if(makeRequest) {
 app.get('/api/comments.json', (req, res) => {
   
   commentsDB.getComments({}, (err, data) => {
-    res.send({ data });
+    res.send(data[0]);
   })
 })
 
