@@ -7,6 +7,7 @@ var fs = require('fs');
 var path = require('path');
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
+var makeRequest = true;
 const toneMessages = {
     "anger": [
         "They're an angry bunch today.",
