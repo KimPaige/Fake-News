@@ -22,7 +22,7 @@ const toneMessages = {
     "joy": [
         "Absolutely spiffin' innit."
     ],
-    "sadness": [
+    "sad": [
         "The nation's got the blues today."
     ]
 }
