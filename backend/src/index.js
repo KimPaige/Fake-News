@@ -7,7 +7,7 @@ var fs = require('fs');
 var path = require('path');
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
-var makeRequest = false;
+var makeRequest = true;
 
 //Get the secret key
 if(makeRequest) {
