@@ -6,7 +6,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.js"></script>
 <script>
     fetch("/api/comments.json").then(resp => resp.json()).then(comments => {
-        console.log(comments)
+
       let colors = {
         joy: "#EEDD01",
         anger: "#CA3534",
@@ -22,7 +22,6 @@
       for (var a = 0; a < comments.data.length; a++) {
         if (a == midIndex) {
           var moodText = comments.tod.tagline;
-          console.log(moodText)
           let mood = $(`<div class="swiper-slide" id="mood">${moodText}</div>`);
           colorsArray.push(colors[comments.tod.name]);
           carousel.append(mood);
@@ -32,7 +31,7 @@
     let comment = $(`<div class="swiper-slide"><table id="table" align="center">
         <tr>
             <td style="vertical-align: top" width= "200px"><div id="tone">${comments.data[a].tone}</div></td>
-            <td><div id="comment" width= "600px">${comments.data[a].text}</div></td>
+            <td><div id="comment" width= "600px">${comments.data[a].text.length > 260 ? comments.data[a].text.substring(0, 260) + "..." : comments.data[a].text}</div></td>
         </tr>
         <tr>
             <td></td>
@@ -161,7 +160,7 @@
     }
 
     #comment {
-        font-size: 36px;
+        font-size: 18px;
         font-family: Helvetica;
         font-weight: bold;
         color: white;

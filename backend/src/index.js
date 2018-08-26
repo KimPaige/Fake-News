@@ -7,7 +7,7 @@ var fs = require('fs');
 var path = require('path');
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
-var makeRequest = true;
+var makeRequest = false;
 const toneMessages = {
     "anger": [
         "They're an angry bunch today.",
@@ -223,7 +223,7 @@ function doCommentAnalysis(comments, toneAnalyzer) {
 }
 
 
-var makeRequest = false;
+var makeRequest = true;
 
 if (makeRequest) {
 
