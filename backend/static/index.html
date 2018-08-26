@@ -22,7 +22,7 @@
       for (var a = 0; a < comments.data.length; a++) {
         if (a == midIndex) {
           var moodText = comments.tod.tagline;
-          let mood = $(`<div class="swiper-slide"><div id="mood">${moodText}</div></div>`);
+          let mood = $(`<div class="swiper-slide" id="mood">${moodText}</div>`);
           colorsArray.push(colors[comments.tod.name]);
           carousel.append(mood);
           $('#mood').fitText();
@@ -43,7 +43,7 @@
         carousel.append(comment);
       }
 
-       $("body").append(`<div id="mood_2">${moodText}</div>`);
+       $("body").append(`<div id="mood_2">${moodText}</div>`);   
 
       var swiper = new Swiper('.swiper-container', {
         initialSlide: midIndex,
@@ -63,6 +63,11 @@
       });
       changeSlide();
 
+      $("#mood_2").click(function (){
+          console.log("here")
+          swiper.slideTo(midIndex, 1000, false);
+      });
+
       function changeSlide() {
         let activeIndex = swiper.activeIndex;
         let currentColor = colorsArray[activeIndex];
@@ -76,6 +81,7 @@
     })
 
 </script>
+
 <meta charset="utf-8">
 <title>New Tab</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -100,27 +106,27 @@
       height: 100%;
     }
     .swiper-slide {
-        margin: auto;
-      text-align: center;
-      font-size: 18px;
-      background: transparent;
-      width: 60%;
-      min-width: 500px;
-      max-width: 900px;
+        margin: auto auto auto 20%;
+        text-align: center;
+        font-size: 18px;
+        background: transparent;
+        width: 60%;
+        min-width: 500px;
+        max-width: 900px;
 
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
     }
 
     .swiper-pagination-bullet-active {
@@ -148,6 +154,9 @@
         padding-top: 90px;
         padding-right: 80px;
         font-weight: bold;
+        z-index: 10000000;
+        cursor: pointer;
+        text-decoration: underline;
     }
 
     #comment {
@@ -155,11 +164,9 @@
         font-family: Helvetica;
         font-weight: bold;
         color: white;
-        /* width: 100%; */
         display: block;
         text-align: left;
         padding-bottom: 20px;
-        /* width: 600px; */
     }
 
     #source {
@@ -179,17 +186,12 @@
     #link:hover {
         color: #D2CDCD;
     }
-    #table {
-        /* width: 800px; */
-    }
 
     #tone {
         color: rgb(255, 255, 255, 0.5);
         font-size: 36px;
         font-family: Helvetica;
         font-weight: bold;
-        /* width: 100%; */
-        /* display: block; */
         text-align: right;
         text-transform: capitalize;
         padding-right: 42px;
