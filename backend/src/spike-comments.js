@@ -70,7 +70,9 @@ function get(callback) {
 
                 request(options, function (error, response, body) {
                     if (error) throw new Error(error);
-
+                    
+                    // If the article does not exist anymore, then do not process that article
+                    if (response.statusCode === 404) return;
                     let fullURL = response.headers['x-url'];
 
                     let betweenSlash = fullURL.split('/');
@@ -102,7 +104,7 @@ function get(callback) {
                 }
             }
             asyncNumDone++;
-            if (asyncNumDone === asyncNumToDo) callback(comments);
+            if (asyncNumDone === asyncNumToDo) {callback(comments)};
         });
     }
 }

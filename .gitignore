@@ -1,3 +1,5 @@
-/.key
-/.username
-/.password
+*/.key
+*/.username
+*/.password
+*/node_modules/
+.vscode/

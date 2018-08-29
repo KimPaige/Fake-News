@@ -7,7 +7,12 @@ var fs = require('fs');
 var path = require('path');
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
-var makeRequest = false;
+// Should requests to Watson be made? (Debugging purposes to limit requests)
+var makeRequest = true;
+
+// Max number of requests that should be made to Watson. If maxRequests <=0 then unlimited
+var maxRequests = -1;
+
 const toneMessages = {
     "anger": [
         "They're an angry bunch today.",
@@ -27,16 +32,33 @@ const toneMessages = {
     ]
 }
 
+// Get and analyze all the comments
+if (makeRequest) {
+    toneAnalyzer = getToneAnalyzer();
+    getComments(comments => {
+        doCommentAnalysis(comments, toneAnalyzer);
+    });
+}
+
+// Serve the comment data
+app.get('/api/comments.json', (req, res) => {
+    commentsDB.getComments({}, (err, data) => {
+        res.send(data[data.length - 1]);
+    })
+})
+
+app.use(serveStatic('static/'));
+
+app.listen(5000);
+
 /**
  * Instantiates the tone analyzer, reading the username and password from files.
  * 
  * @return The tone analyzer
  */
 function getToneAnalyzer() {
-    console.log("reading file");
     let username = fs.readFileSync(path.join(__dirname, '..', '..', '.username'), 'utf8');
     let password = fs.readFileSync(path.join(__dirname, '..', '..', '.password'), 'utf8');
-    console.log("read file");
 
     return new ToneAnalyzerV3({
         version: '2016-05-19',
@@ -71,7 +93,6 @@ function analyzeComment(comment, toneAnalyzer, callback) {
  * them and stores the results in a database.
  */
 function doCommentAnalysis(comments, toneAnalyzer) {
-    console.log("got comments");
     let numAngry = 0;
     let numDisgust = 0;
     let numFear = 0;
@@ -96,7 +117,10 @@ function doCommentAnalysis(comments, toneAnalyzer) {
     let asyncNumDone = 0;
     let asyncNumToDo = comments.length;
 
-    comments.forEach(comment => {
+    // Limit number of comments if requested
+    let commentsToProcess = maxRequests <= 0 ? comments : comments.slice(0, maxRequest);
+
+    commentsToProcess.forEach(comment => {
         //Analyze the tone of each comment, finding the highest of each category
         tones = analyzeComment(comment, toneAnalyzer, tonesArray => {
             let dominantEmotion = "anger";
@@ -156,7 +180,7 @@ function doCommentAnalysis(comments, toneAnalyzer) {
             }
 
             asyncNumDone++;
-            if (asyncNumDone === asyncNumToDo) {
+            if (asyncNumDone === 5) {
                 //Add the comments of each category
                 let highestFreq = Math.max(numAngry, numDisgust, numFear, numJoy, numSad);
                 let tod;
@@ -165,13 +189,13 @@ function doCommentAnalysis(comments, toneAnalyzer) {
                     case numDisgust: tod = "disgust"; break;
                     case numFear: tod = "fear"; break;
                     case numJoy: tod = "joy"; break;
-                    case numSad: tod = "sadness"; break;
+                    case numSad: tod = "sad"; break;
                 }
 
                 let databaseEntry = {};
 
                 databaseEntry.tod = {
-                    tagline: toneMessages[tod][Math.floor((Math.random() * toneMessages[tod].length))],
+                    tagline: toneMessages[tod][Math.floor((Math.random() * toneMessages[tod].length))], // Randomly pick a tagline
                     name: tod
                 }
                 let data = [];
@@ -222,28 +246,3 @@ function doCommentAnalysis(comments, toneAnalyzer) {
     console.log('Test');
 }
 
-
-var makeRequest = true;
-
-if (makeRequest) {
-
-    toneAnalyzer = getToneAnalyzer();
-
-    console.log("getting comments");
-    getComments(comments => {
-
-        doCommentAnalysis(comments, toneAnalyzer);
-
-    });
-}
-
-app.get('/api/comments.json', (req, res) => {
-
-    commentsDB.getComments({}, (err, data) => {
-        res.send(data[data.length - 1]);
-    })
-})
-
-app.use(serveStatic('static/'));
-
-app.listen(5000);
