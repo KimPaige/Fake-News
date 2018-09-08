@@ -118,7 +118,7 @@ function doCommentAnalysis(comments, toneAnalyzer) {
     let asyncNumToDo = comments.length;
 
     // Limit number of comments if requested
-    let commentsToProcess = maxRequests <= 0 ? comments : comments.slice(0, maxRequest);
+    let commentsToProcess = maxRequests <= 0 ? comments : comments.slice(0, maxRequests);
 
     commentsToProcess.forEach(comment => {
         //Analyze the tone of each comment, finding the highest of each category

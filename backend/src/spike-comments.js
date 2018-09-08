@@ -104,7 +104,7 @@ function get(callback) {
                 }
             }
             asyncNumDone++;
-            if (asyncNumDone === asyncNumToDo) {callback(comments)};
+            if (asyncNumDone === asyncNumToDo - 1) {callback(comments)};
         });
     }
 }
