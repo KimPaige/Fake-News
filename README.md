@@ -1,3 +1,12 @@
+ # Purpose
+ 
+This code was the outcome of a weekend long coding competition, Create Camp, which is run by Summer of Tech. We were given the challenge of creating a web application that used at least one API or data source, and given only 16 hours, split across two days, to complete it. We came up with our idea early on in the first day and then spent the rest of our time developing the code found in this repository.
+
+# Award
+
+Our team is very proud to say that we won the overall award at Create Camp 2018, Technology. 
+
+# Introduction
  
 Millennials do not have the time or inclination to read traditional news articles. But what if they could engage with the news quickly and effortlessly on a fun platform that fits straight into their everyday lives? Enter...
 
