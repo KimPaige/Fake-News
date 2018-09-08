@@ -11,7 +11,7 @@ var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 var makeRequest = true;
 
 // Max number of requests that should be made to Watson. If maxRequests <=0 then unlimited
-var maxRequests = -1;
+var maxRequests = 5;
 
 const toneMessages = {
     "anger": [
